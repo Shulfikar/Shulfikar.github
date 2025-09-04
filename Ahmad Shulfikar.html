@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Data Pribadi</title>
+</head>
+<body>
+  <h1 style="text-transform: uppercase; text-align:center;">
+    Formulir Data Pribadi
+  </h1>
+
+  <!-- ==================== FORM ==================== -->
+  <form id="FormSaya" style="text-align: center;">
+    <label>Nama:</label><br>
+    <input type="text" id="nama" value ="Ahmad Shulfikar" required><br><br>
+
+    <label>Tanggal Lahir:</label><br>
+    <input type="text" id="tgl" value="04 12 2008" required><br><br>
+
+    <label>Jenis Kelamin:</label><br>
+    <select id="jk" required>
+      <option value="">-- Pilih --</option>
+      <option value="Laki-laki">Laki-laki</option>
+      <option value="Perempuan">Perempuan</option>
+    </select><br><br>
+
+    <label>Alamat:</label><br>
+    <input type="text" id="alamat" value ="Kp Sawah" required><br><br>
+
+    <label>Hobi:</label><br>
+    <input type="text" id="hobi" value ="Mancing" required><br><br>
+
+    <button type="submit">Kirim</button>
+  </form>
+
+  <!-- ==================== Hasil Output ==================== -->
+  <div id="gatau" style="display:none; margin-top:20px; text-align:center;"></div>
+
+  <!-- ==================== Script JavaScript ==================== -->
+  <script>
+    const form = document.getElementById("FormSaya");
+    const hasil = document.getElementById("gatau");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Ambil nilai dari input
+      const nama = document.getElementById("nama").value;
+      const tgl = document.getElementById("tgl").value;
+      const jk = document.getElementById("jk").value;
+      const alamat = document.getElementById("alamat").value;
+      const hobi = document.getElementById("hobi").value;
+
+      // Tampilkan hasil
+      hasil.style.display = "block";
+      hasil.innerHTML = `
+        <h2>DATA PRIBADI</h2>
+        <p><b>Nama:</b> ${nama}</p>
+        <p><b>Tanggal Lahir:</b> ${tgl}</p>
+        <p><b>Jenis Kelamin:</b> ${jk}</p>
+        <p><b>Alamat:</b> ${alamat}</p>
+        <p><b>Hobi:</b> ${hobi}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
